@@ -1,8 +1,7 @@
 import { useState } from "react";
 
 export default function Register() {
-  // options as arrays (requirement)
-  const genderOptions = [
+  const genders = [
     { label: "Male", value: "male" },
     { label: "Female", value: "female" },
     { label: "Others", value: "others" },
@@ -20,7 +19,6 @@ export default function Register() {
     { label: "System Analyst", value: "system analyst" },
   ];
 
-  // states
   const [username, setUsername] = useState("");
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
@@ -45,34 +43,22 @@ export default function Register() {
 
       <div style={{ marginBottom: 10 }}>
         <div>Username</div>
-        <input
-          type="text"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
+        <input value={username} onChange={(e) => setUsername(e.target.value)} />
       </div>
 
       <div style={{ marginBottom: 10 }}>
         <div>Firstname</div>
-        <input
-          type="text"
-          value={firstname}
-          onChange={(e) => setFirstname(e.target.value)}
-        />
+        <input value={firstname} onChange={(e) => setFirstname(e.target.value)} />
       </div>
 
       <div style={{ marginBottom: 10 }}>
         <div>Lastname</div>
-        <input
-          type="text"
-          value={lastname}
-          onChange={(e) => setLastname(e.target.value)}
-        />
+        <input value={lastname} onChange={(e) => setLastname(e.target.value)} />
       </div>
 
-      <div style={{ margin: "14px 0" }}>
+      <div style={{ marginBottom: 10 }}>
         <div style={{ fontWeight: "bold" }}>Gender</div>
-        {genderOptions.map((g) => (
+        {genders.map((g) => (
           <label key={g.value} style={{ marginRight: 12 }}>
             <input
               type="radio"
@@ -86,7 +72,7 @@ export default function Register() {
         ))}
       </div>
 
-      <div style={{ margin: "14px 0" }}>
+      <div style={{ marginBottom: 10 }}>
         <div style={{ fontWeight: "bold" }}>Hobbies</div>
         {hobbyOptions.map((h) => (
           <div key={h.value}>
@@ -103,7 +89,7 @@ export default function Register() {
         ))}
       </div>
 
-      <div style={{ margin: "14px 0" }}>
+      <div style={{ marginBottom: 10 }}>
         <div style={{ fontWeight: "bold" }}>Role</div>
         <select value={role} onChange={(e) => setRole(e.target.value)}>
           {roleOptions.map((r) => (
@@ -114,16 +100,15 @@ export default function Register() {
         </select>
       </div>
 
-      {/* Display input data (lower part) */}
-      <hr style={{ margin: "18px 0" }} />
+      <hr style={{ margin: "16px 0" }} />
+
+      {/* LIVE DISPLAY (this is the assignment requirement) */}
       <div>
         <div>Username: <b style={{ color: "brown" }}>{username}</b></div>
         <div>Firstname: <b style={{ color: "brown" }}>{firstname}</b></div>
         <div>Lastname: <b style={{ color: "brown" }}>{lastname}</b></div>
         <div>Gender: <b style={{ color: "brown" }}>{gender}</b></div>
-        <div>
-          Hoobies: <b style={{ color: "brown" }}>{hobbies.join(", ")}</b>
-        </div>
+        <div>Hoobies: <b style={{ color: "brown" }}>{hobbies.join(", ")}</b></div>
         <div>Role: <b style={{ color: "brown" }}>{role}</b></div>
       </div>
     </div>
